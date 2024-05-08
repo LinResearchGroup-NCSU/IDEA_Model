@@ -1,0 +1,11 @@
+1. Sequence alignment based on MAFFT/Clustal ... (shouldn't change too much of the results)
+2. Modeller build in the new CDR loops
+3. Recalculate the contact map
+4. evaluate the binding energy (affinity)
+5. Take 3PQY as an example      
+
+A bigger underlying assumption is with the same pMHC, the TCR should have relatively conserved contact interface 
+
+
+
+
