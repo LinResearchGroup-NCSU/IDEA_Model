@@ -53,7 +53,7 @@ Once you have the trained energy model, you may want to generate the `phi` for t
    Place the PDB files in the directory `1hlo_phi255/PDBs`.
 
 2. **DNA Sequence File**:
-   The DNA sequence file is `1hlo_phi255/phi255.sh`.
+   The DNA sequence file is `1hlo_phi255/sequences`.
 
 ### Step 2: Generate Testing Sequences
 
