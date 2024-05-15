@@ -4,8 +4,6 @@ Interpretable protein-DNA Energy Associative (IDEA) Model
 This is a cleaned-up version of the IDEA model
 Training and testing data are provided, using the 3 human MAX TF as an example
 
-Code Example：https://drive.google.com/drive/folders/10f85feDBfOjVS0YkCJaNOo8JDob6qWe0?usp=drive_link
-
 ## Max Protein Complexes Energy Model Training Guide
 
 This guide walks you through the steps to train an energy model for three human Max proteins (PDB IDs: 1hlo, 1nlw, and 1nkp).
