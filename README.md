@@ -69,7 +69,7 @@ The generated testing `phi` will be in `1hlo_phi255/phis`, named `phi_pairwise_c
 
 ### Step 4: Calculate Predicted Energy
 
-Calculate the predicted energy based on the gamma file generated in `3max_case` and the testing `phi` file using the formula \( E = \gamma \Phi \).
+Calculate the predicted energy based on the gamma file generated in `3max_case` and the testing `phi` file using the formula  E = γΦ.
 
 1. **Run the Python Script**:
    Navigate to the `testing_energy` directory and run the script `calculate_testing_energy.py` to calculate the energy.
