@@ -63,7 +63,7 @@ The input for this program starts from `dna_half.seq`. The scripts `reverse_comp
 
 Run the following command to generate the testing `phi`:
 ```bash
-bash 1hlo_phi255.sh
+bash phi255.sh 1hlo
 ```
 The generated testing `phi` will be in `1hlo_phi255/phis`, named `phi_pairwise_contact_well_native_decoys_CPLEX_randomization_-8.0_8.0_0.7_10`. It should have 255 lines as we have 255 testing sequences. The `phi_pairwise_contact_well_native_native_-8.0_8.0_0.7_10` file is the `phi` for the native structure (only one line as we have one structure as input).
 
