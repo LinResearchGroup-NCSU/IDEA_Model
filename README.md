@@ -3,6 +3,17 @@ Interpretable protein-DNA Energy Associative (IDEA) Model
 
 This is a cleaned-up version of the IDEA model. Training and testing data are provided, using 3 human MAX transcription factors (TFs) as an example. The final result here is used in Figure S1 in our IDEA manuscript.
 
+## Prerequisites
+
+Before running this code, please ensure you have the following software installed:
+
+1. **Python 3**  
+   You can download Python 3 from the official Python website. Follow the instructions for your operating system [here](https://www.python.org/downloads/).
+
+2. **Modeller**  
+   Modeller is a software package for comparative modeling of protein three-dimensional structures. To download and install Modeller, visit the [Modeller download page](https://salilab.org/modeller/download_installation.html) and follow the installation instructions provided.
+
+
 ## Max Protein Complexes Energy Model Training Guide
 
 This guide will help you train an energy model for three human Max proteins (PDB IDs: 1hlo, 1nlw, and 1nkp).
