@@ -91,5 +91,6 @@ Calculate the predicted energy based on the gamma file generated in `3max_case` 
 
 ## References
 
+Zhang, Y, Silvernail, I, Lin, Z, Lin, X (2024) Interpretable Protein-DNA Interactions Captured by Structure-based Optimization. *bioRxiv*. DOI:[10.1101/2024.05.26.595895](https://www.biorxiv.org/content/10.1101/2024.05.26.595895v1)
 Maerkl, S. J., & Quake, S. R. (2007). A Systems Approach to Measuring the Binding Energy Landscapes of Transcription Factors. *Science*, 315(5809), 233-237. DOI: [10.1126/science.1131007](https://doi.org/10.1126/science.1131007)
 ```
