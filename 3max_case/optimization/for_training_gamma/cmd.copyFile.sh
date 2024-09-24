@@ -18,7 +18,7 @@ do
     # Rename files based on extracted params
     cp ../for_bindingE/$f/phis/phi_pairwise_contact_well_native_native_${params} phis/phi_pairwise_contact_well_${f}_native_${params}
     cp ../for_bindingE/$f/phis/phi_pairwise_contact_well_native_decoys_CPLEX_randomization_${params} phis/phi_pairwise_contact_well_${f}_decoys_CPLEX_randomization_${params}
-    cp ../for_bindingE/$f/tms/native.tm tms/${f}.tm
+    #cp ../for_bindingE/$f/tms/native.tm tms/${f}.tm
 done < native_trainSetFiles.txt
 
 
