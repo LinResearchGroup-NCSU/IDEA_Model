@@ -7,11 +7,43 @@ This is a cleaned-up version of the IDEA model. Training and testing data are pr
 
 Before running this code, please ensure you have the following software installed:
 
-1. **Python 3**  
-   You can download Python 3 from the official Python website. Follow the instructions for your operating system [here](https://www.python.org/downloads/).
+# Project Setup Instructions
 
-2. **Modeller**  
-   Modeller is a software package for comparative modeling of protein three-dimensional structures. To download and install Modeller, visit the [Modeller download page](https://salilab.org/modeller/download_installation.html) and follow the installation instructions provided. Notably, we did not use Modeller’s homology‑modeling module. Instead, we used only one script—3max_case/optimization/for_bindingE/template/sequences/buildseq.py—to extract the protein and DNA sequences from the experimental PDB structure.
+Before running this code, please ensure you have the following software installed:
+
+## 1. Python 3
+
+You can download Python 3 from the official Python website. Follow the instructions for your operating system [here](https://www.python.org/downloads/).
+
+## 2. Modeller
+
+Modeller is a software package for comparative modeling of protein three-dimensional structures. 
+
+- **Download and Install:** Visit the [Modeller download page](https://salilab.org/modeller/download_installation.html) and follow the provided instructions.
+
+**Note:** We did **not** use Modeller’s homology-modeling module. Instead, we used only one script:
+
+```
+3max_case/optimization/for_bindingE/template/sequences/buildseq.py
+```
+
+This script extracts protein and DNA sequences from the experimental PDB structure.
+
+## 3. Python Packages
+
+Install the required Python packages via `pip` or `conda` as follows:
+
+### Using pip (recommended after installing Python):
+
+```bash
+pip install biopython numpy mdtraj
+```
+
+### Using conda (recommended if using Anaconda or Miniconda):
+
+```bash
+conda install -c conda-forge biopython numpy mdtraj
+```
 
 ## Max Protein Complexes Energy Model Training Guide
 
