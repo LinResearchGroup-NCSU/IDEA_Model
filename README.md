@@ -11,8 +11,7 @@ Before running this code, please ensure you have the following software installe
    You can download Python 3 from the official Python website. Follow the instructions for your operating system [here](https://www.python.org/downloads/).
 
 2. **Modeller**  
-   Modeller is a software package for comparative modeling of protein three-dimensional structures. To download and install Modeller, visit the [Modeller download page](https://salilab.org/modeller/download_installation.html) and follow the installation instructions provided.
-
+   Modeller is a software package for comparative modeling of protein three-dimensional structures. To download and install Modeller, visit the [Modeller download page](https://salilab.org/modeller/download_installation.html) and follow the installation instructions provided. Notably, we did not use Modeller’s homology‑modeling module. Instead, we used only one script—3max_case/optimization/for_bindingE/template/sequences/buildseq.py—to extract the protein and DNA sequences from the experimental PDB structure.
 
 ## Max Protein Complexes Energy Model Training Guide
 
