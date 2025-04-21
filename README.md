@@ -7,10 +7,6 @@ This is a cleaned-up version of the IDEA model. Training and testing data are pr
 
 Before running this code, please ensure you have the following software installed:
 
-# Project Setup Instructions
-
-Before running this code, please ensure you have the following software installed:
-
 ## 1. Python 3
 
 You can download Python 3 from the official Python website. Follow the instructions for your operating system [here](https://www.python.org/downloads/).
