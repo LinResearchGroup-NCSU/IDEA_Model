@@ -3,6 +3,13 @@ Interpretable protein-DNA Energy Associative (IDEA) Model
 
 This is a cleaned-up version of the IDEA model. Training and testing data are provided, using 3 human MAX transcription factors (TFs) as an example. The final result here is used in Figure S1 in our IDEA manuscript.
 
+# Clone the Repository
+
+```bash
+git clone https://github.com/LinResearchGroup-NCSU/IDEA_Model
+cd IDEA_Model
+```
+
 ## Prerequisites
 
 Before running this code, please ensure you have the following software installed:
