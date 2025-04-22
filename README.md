@@ -1,4 +1,3 @@
-```markdown
 # IDEA Model: Interpretable Protein-DNA Energy Associative Model
 
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
