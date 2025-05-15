@@ -1,10 +1,10 @@
 # IDEA Model: Interpretable Protein-DNA Energy Associative Model
 
-The **Interpretable Protein-DNA Energy Associative (IDEA) Model** is a computational framework that learns protein-DNA physicochemical interactions by fusing available crystal structures and their associated sequences into an optimized energy model. We show that the model can be used to accurately predict the sequence-specific DNA binding affinities of DNA-binding proteins and is transferrable across the same protein superfamily. This repository provides a clean implementation of the IDEA model, with training and testing data for three human MAX transcription factors (PDB IDs: 1hlo, 1nlw, 1nkp). Results are used in **Figure S1** of the IDEA manuscript.
+The **Interpretable Protein-DNA Energy Associative (IDEA) Model** is a computational framework that learns protein-DNA physicochemical interactions by fusing available crystal structures and their associated sequences into an optimized energy model. We show that the model can be used to accurately predict the sequence-specific DNA binding affinities of DNA-binding proteins and is transferable across the same protein superfamily. This repository provides a clean implementation of the IDEA model, with training and testing data for three human MAX transcription factors (PDB IDs: 1hlo, 1nlw, 1nkp). Results are used in **Figure S1** of the IDEA manuscript.
 
 ## Features
 
-- Train energy models for protein-DNA complexes.
+- Train and visualize IDEA energy models for protein-DNA complexes.
 - Generate phi values and calculate binding energies for testing binders.
 - Supplementary materials.
 
@@ -13,16 +13,15 @@ The **Interpretable Protein-DNA Energy Associative (IDEA) Model** is a computati
 ### Prerequisites
 
 - **Python 3**: Download from [python.org](https://www.python.org/downloads/).
-- **Modeller**: Install from [salilab.org/modeller](https://salilab.org/modeller/download_installation.html).  
-  **Note**: We did not use the homology modeling module of Modeller. We only used a single script `3max_case/optimization/for_bindingE/template/sequences/buildseq.py`, from the Modeller package to extract the protein and DNA sequences from the given PDB structure. 
 - **Python Packages**:
   ```bash
   # Using pip
-  pip install biopython numpy mdtraj
+  pip install biopython numpy mdtraj joblib
 
   # Or using conda
-  conda install -c conda-forge biopython numpy mdtraj
+  conda install -c conda-forge biopython numpy mdtraj joblib
   ```
+  **Note**: Our old version used a single script `buildseq.py`, from the Modeller package to extract the protein and DNA sequences from the given PDB structure. To avoid further confusion and reduce the environment dependencies required to run the code, we rewrote it using basic Python code. The most time-consuming step of the IDEA is generating the phi values for decoy/testing binders. We rewrote the `template_evaluate_phi.py` by adopting parallel computation from joblib and multiprocessing, which is especially useful when we want to do genome-wide prediction. We also simplified the redundant parts of the code and added informative messages during model training and testing to make it more user-friendly.
 
 ### Setup
 
@@ -43,13 +42,13 @@ The **Interpretable Protein-DNA Energy Associative (IDEA) Model** is a computati
 Train an energy model for three MAX protein complexes (1hlo, 1nlw, 1nkp).
 
 1. **Prepare Input Files**:
-   - Create `3max_case/proteinList.txt` with PDB IDs:
+   - Create `training/proteinList.txt` with PDB IDs:
      ```
      1hlo
      1nlw
      1nkp
      ```
-   - Place PDB files in `3max_case/PDBs`, named `{PDB ID}_modified.pdb` (e.g., `1hlo_modified.pdb`). Rename protein chains to **A** and DNA chains to **B** and **C**, respectively.
+   - Place PDB files in `training/PDBs`, named `{PDB ID}_modified.pdb` (e.g., `1hlo_modified.pdb`). Rename protein chains to **A** and DNA chains to **B** and **C**, respectively.
 
 2. **Run Training**:
    ```bash
@@ -58,34 +57,42 @@ Train an energy model for three MAX protein complexes (1hlo, 1nlw, 1nkp).
 
 3. **Configure Settings**:
    - **Interaction Atoms**: Edit `get_interaction_atom` in `common_function.py` to implement a **coarse-grained interaction scheme**, where DNA bases are represented by the **C5** atom (or **P** if backbone-level resolution is preferred), and protein residues are represented by the **Cα (CA)** atom, although **side-chain atoms** may also be used in cases where more detailed interactions are of interest.
-   - **Cutoff Mode**: In `3max_case/optimization/for_training_gamma/optimize_gamma.py`, set `cutoff_mode` to retain the first 70 eigenvalues, replacing others with the 70th eigenvalue.
+   - **Decoy Number**: In `training/optimization/for_bindingE/template/sequences`, the scripts generate_decoy_seq_prot.py and generate_decoy_seq_DNA.py are used to generate protein and DNA decoy sequences for training. The default sizes are 10,000 and 1,000, respectively, which we found to be robust across all tests in our manuscript. Please adjust these values based on your specific needs.
+   - **Cutoff Mode**: In `training/optimization/for_training_gamma/optimize_gamma.py`, set cutoff_mode = 70 to retain the first 70 eigenvalues, replacing all others with the 70th eigenvalue. This choice typically depends on the lambda values in training/optimization/for_training_gamma/gammas/randomized_decoy/native_trainSetFiles_phi_pairwise_contact_well-8.0_8.0_0.7_10_lamb.
 
 4. **Output**:
-   - Results are saved in `3max_case/optimization/for_training_gamma/gammas/randomized_decoy`.
+   - Results are saved in `training/optimization/for_training_gamma/gammas/randomized_decoy`.
    - Key file: `native_trainSetFiles_phi_pairwise_contact_well-8.0_8.0_0.7_10_gamma_filtered` (filtered energy model).
+
+5. **Visualization**:
+   - Run:
+     ```bash
+     python training/optimization/for_training_gamma/visualize.py
+     ```
+   - Plots are saved in `training/optimization/for_training_gamma/visualize`.
 
 ### Predicting Protein-DNA Binding Energies
 
-Generate phi values and calculate binding energies for testing binders (e.g., 1hlo_phi255 dataset).
+Generate phi values and calculate binding energies for given testing binders (e.g., Max 255 mutated binders testing dataset in Maerkl, S. J et al.).
 
 1. **Prepare Input Files**:
-   - Place PDB files in `1hlo_phi255/PDBs`.
-   - DNA(testing) sequences are in `1hlo_phi255/sequences`.
+   - Place PDB files in `testing/PDBs`.
+   - DNA (testing) sequences are in `testing/sequences`.
 
 2. **Generate Testing Sequences**:
    - Use `dna_half.seq` as input. Optionally, run `reverse_complement.py` and `merge.py` to generate full double-stranded DNA sequences.
-   - Ensure sequences match the native PDB structure.
+   - Ensure the length of sequences matches the native PDB structure.
 
 3. **Generate Testing Phi**:
    ```bash
-   bash phi255.sh 1hlo
+   bash test.sh 1hlo
    ```
-   - Output in `1hlo_phi255/phis`:
+   - Output in `testing/phis`:
      - `phi_pairwise_contact_well_native_decoys_CPLEX_randomization_-8.0_8.0_0.7_10` (255 lines for testing sequences).
      - `phi_pairwise_contact_well_native_native_-8.0_8.0_0.7_10` (1 line for native structure).
 
 4. **Calculate Binding Energy**:
-   - Navigate to `testing_energy` and run:
+   - Navigate to `energy_calculation` and run:
      ```bash
      python calculate_testing_energy.py
      ```
