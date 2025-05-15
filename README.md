@@ -58,7 +58,7 @@ Train an energy model for three MAX protein complexes (1hlo, 1nlw, 1nkp).
 3. **Configure Settings**:
    - **Interaction Atoms**: Edit `get_interaction_atom` in `common_function.py` to implement a **coarse-grained interaction scheme**, where DNA bases are represented by the **C5** atom (or **P** if backbone-level resolution is preferred), and protein residues are represented by the **Cα (CA)** atom, although **side-chain atoms** may also be used in cases where more detailed interactions are of interest.
    - **Decoy Number**: In `training/optimization/for_bindingE/template/sequences`, the scripts generate_decoy_seq_prot.py and generate_decoy_seq_DNA.py are used to generate protein and DNA decoy sequences for training. The default sizes are 10,000 and 1,000, respectively, which we found to be robust across all tests in our manuscript. Please adjust these values based on your specific needs.
-   - **Cutoff Mode**: In `training/optimization/for_training_gamma/optimize_gamma.py`, set cutoff_mode = 70 to retain the first 70 eigenvalues, replacing all others with the 70th eigenvalue. This choice typically depends on the lambda values in training/optimization/for_training_gamma/gammas/randomized_decoy/native_trainSetFiles_phi_pairwise_contact_well-8.0_8.0_0.7_10_lamb.
+   - **Cutoff Mode**: In `training/optimization/for_training_gamma/optimize_gamma.py`, set cutoff_mode = 70 to retain the first 70 eigenvalues, replacing all others with the 70th eigenvalue. This choice typically depends on the lambda values in `training/optimization/for_training_gamma/gammas/randomized_decoy/native_trainSetFiles_phi_pairwise_contact_well-8.0_8.0_0.7_10_lamb`.
 
 4. **Output**:
    - Results are saved in `training/optimization/for_training_gamma/gammas/randomized_decoy`.
