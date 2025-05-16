@@ -64,7 +64,8 @@ Train an energy model for three MAX protein complexes (1hlo, 1nlw, 1nkp).
 5. **Visualization**:
    - Run:
      ```bash
-     python training/optimization/for_training_gamma/visualize.py
+     cd training/optimization/for_training_gamma/
+     python visualize.py
      ```
    - Plots are saved in `training/optimization/for_training_gamma/visualize`.
 
