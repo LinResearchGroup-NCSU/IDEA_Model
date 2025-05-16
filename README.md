@@ -11,22 +11,16 @@ The **Interpretable Protein-DNA Energy Associative (IDEA) Model** is a computati
 ## Installation
 
 - **Python 3**: Download from [python.org](https://www.python.org/downloads/).
-- **Python Packages**:
-  ```bash
-  # Using pip
-  pip install biopython numpy mdtraj joblib
-
-  # Or using conda
-  conda install -c conda-forge biopython numpy mdtraj joblib
-  ```
-
-### Setup
-
+- **Conda** (Recommended: [Miniconda](https://docs.conda.io/en/latest/miniconda.html))
+   ```bash
+   wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
+   bash Miniconda3-latest-Linux-x86_64.sh
+   ```
 1. Clone the repository:
    ```bash
    git clone https://github.com/LinResearchGroup-NCSU/IDEA_Model
-   wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
-   bash Miniconda3-latest-Linux-x86_64.sh
+   ```
+2. Create and Activate the Conda Environment:
    cd IDEA_Model
    conda env create -f IDEA.yaml -n IDEA
    conda activate IDEA
