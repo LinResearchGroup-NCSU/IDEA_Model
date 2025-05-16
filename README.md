@@ -83,6 +83,7 @@ Generate phi values and calculate binding energies for given testing binders (e.
 
 3. **Generate Testing Phi**:
    ```bash
+   cd testing/
    bash test.sh 1hlo
    ```
    - Output in `testing/phis`:
@@ -90,6 +91,12 @@ Generate phi values and calculate binding energies for given testing binders (e.
      - `phi_pairwise_contact_well_native_native_-8.0_8.0_0.7_10` (1 line for native structure).
 
 4. **Calculate Binding Energy**:
+   - Copy the files to `energy_calculation/`:
+     ```bash
+     cp training/optimization/for_training_gamma/gammas/randomized_decoy/native_trainSetFiles_phi_pairwise_contact_well-8.0_8.0_0.7_10_gamma_filtered energy_calculation/
+     cp testing/phis/phi_pairwise_contact_well_native_decoys_CPLEX_randomization_-8.0_8.0_0.7_10 energy_calculation/
+     ```
+   
    - Navigate to `energy_calculation` and run:
      ```bash
      python calculate_testing_energy.py
