@@ -21,6 +21,7 @@ The **Interpretable Protein-DNA Energy Associative (IDEA) Model** is a computati
    git clone https://github.com/LinResearchGroup-NCSU/IDEA_Model
    ```
 2. Create and Activate the Conda Environment:
+   ```bash
    cd IDEA_Model
    conda env create -f IDEA.yaml -n IDEA
    conda activate IDEA
