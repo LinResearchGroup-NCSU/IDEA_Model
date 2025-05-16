@@ -10,8 +10,6 @@ The **Interpretable Protein-DNA Energy Associative (IDEA) Model** is a computati
 
 ## Installation
 
-### Prerequisites
-
 - **Python 3**: Download from [python.org](https://www.python.org/downloads/).
 - **Python Packages**:
   ```bash
@@ -21,19 +19,23 @@ The **Interpretable Protein-DNA Energy Associative (IDEA) Model** is a computati
   # Or using conda
   conda install -c conda-forge biopython numpy mdtraj joblib
   ```
-  **Note**: Our old version used a single script `buildseq.py`, from the Modeller package to extract the protein and DNA sequences from the given PDB structure. To avoid further confusion and reduce the environment dependencies required to run the code, we rewrote it using basic Python code. The most time-consuming step of the IDEA is generating the phi values for decoy/testing binders. We rewrote the `template_evaluate_phi.py` by adopting parallel computation from joblib and multiprocessing, which is especially useful when we want to do genome-wide prediction. We also simplified the redundant parts of the code and added informative messages during model training and testing to make it more user-friendly.
 
 ### Setup
 
 1. Clone the repository:
    ```bash
    git clone https://github.com/LinResearchGroup-NCSU/IDEA_Model
+   wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
+   bash Miniconda3-latest-Linux-x86_64.sh
    cd IDEA_Model
+   conda env create -f IDEA.yaml -n IDEA
+   conda activate IDEA
    ```
 2. Ensure scripts are executable:
    ```bash
    chmod +x *.sh
    ```
+  **Note**: Our old version used a single script `buildseq.py`, from the Modeller package to extract the protein and DNA sequences from the given PDB structure. To avoid further confusion and reduce the environment dependencies required to run the code, we rewrote it using basic Python code. The most time-consuming step of the IDEA is generating the phi values for decoy/testing binders. We rewrote the `template_evaluate_phi.py` by adopting parallel computation from joblib and multiprocessing, which is especially useful when we want to do genome-wide prediction. We also simplified the redundant parts of the code and added informative messages during model training and testing to make it more user-friendly.
 
 ## Usage
 
