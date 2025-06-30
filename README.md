@@ -1,4 +1,11 @@
-# IDEA Model: Interpretable Protein-DNA Energy Associative Model
+<h1>
+  <img
+    src="https://github.com/user-attachments/assets/f051d65e-b0ca-42bb-80ee-096de6aa91bf"
+    width="200"
+    alt="logo"
+    align="middle"
+  />
+</h1>
 
 The **Interpretable Protein-DNA Energy Associative (IDEA) Model** is a computational framework that learns protein-DNA physicochemical interactions by fusing available crystal structures and their associated sequences into an optimized energy model. We show that the model can be used to accurately predict the sequence-specific DNA binding affinities of DNA-binding proteins and is transferable across the same protein superfamily. This repository provides a clean implementation of the IDEA model, with training and testing data for three human MAX transcription factors (PDB IDs: 1hlo, 1nlw, 1nkp). Results are used in **Figure S1** of the IDEA manuscript.
 
