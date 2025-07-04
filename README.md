@@ -7,7 +7,7 @@
   />
 </h1>
 
-The **Interpretable Protein-DNA Energy Associative (IDEA) Model** is a computational framework that learns protein-DNA physicochemical interactions by fusing available crystal structures and their associated sequences into an optimized energy model. We show that the model can be used to accurately predict the sequence-specific DNA binding affinities of DNA-binding proteins and is transferable across the same protein superfamily. This repository provides a clean implementation of the IDEA model, with training and testing data for three human MAX transcription factors (PDB IDs: 1hlo, 1nlw, 1nkp). Results are used in **Figure S1** of the IDEA manuscript.
+The **Interpretable Protein-DNA Energy Associative (IDEA) Model** is a computational framework that learns protein-DNA physicochemical interactions by fusing available crystal structures and their associated sequences into an optimized energy model. We show that the model can be used to accurately predict the sequence-specific binding affinities and genomic binding sites of DNA-binding proteins and is transferable across the same protein superfamily. This repository provides a clean implementation of the IDEA model, with training and testing data for three human MAX transcription factors (PDB IDs: 1hlo, 1nlw, 1nkp). Results are used in **Figure S1** of the IDEA manuscript.
 
 ## Features
 
@@ -118,7 +118,7 @@ Generate phi values and calculate binding energies for given testing binders (e.
 
 ## References
 
-- Zhang, Y., Silvernail, I., Lin, Z., Lin, X. (2024). Interpretable Protein-DNA Interactions Captured by Structure-based Optimization. *bioRxiv*. [DOI:10.1101/2024.05.26.595895](https://www.biorxiv.org/content/10.1101/2024.05.26.595895v1)
+- Zhang, Y., Silvernail, I., Lin, Z., & Lin, X. (2025). Interpretable Protein–DNA Interactions Captured by Structure–Sequence Optimization. eLife, 14, e105565. https://doi.org/10.7554/eLife.105565
 - Maerkl, S. J., & Quake, S. R. (2007). A Systems Approach to Measuring the Binding Energy Landscapes of Transcription Factors. *Science*, 315(5809), 233–237. [DOI:10.1126/science.1131007](https://doi.org/10.1126/science.1131007)
 
 ## Contact
