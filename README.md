@@ -119,4 +119,4 @@ Generate phi values and calculate binding energies for given testing binders (e.
 
 ## Contact
 
-For questions or support, contact the [Lin Research Group](https://github.com/LinResearchGroup-NCSU) or open an issue on GitHub.
+For questions or support, contact the [Lin Research Group](https://lingroup.wordpress.ncsu.edu/) or open an issue on GitHub.
